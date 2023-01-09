@@ -1,0 +1,17 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    container_name: crud-nestjs-users
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/usr/src/app
+    depends_on:
+      - database
+  database:
+    image: mongo
+    container_name: crud-nests-users-mongodb
+    ports:
+      - 27017:27017
